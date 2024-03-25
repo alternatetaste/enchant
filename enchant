@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""
+TODO: 
+
+1) implement error catching
+2) rainbow text ? 
+3) if help command, add a parser
+
+
+Steps for making a python exe script in linux
+
+1) Add the shebang to the top line: #!/usr/bin/env python3
+2) rename the file to a single name without the extension
+3) add this to the /usr/local/bin/ folder
+
+
+"""
+
+import sys
+
+# Define the mapping
+CHAR_MAP = {
+    "A": "ᔑ",
+    "B": "ʖ",
+    "C": "ᓵ",
+    "D": "↸",
+    "E": "ᒷ",
+    "F": "⎓",
+    "G": "⊣",
+    "H": "⍑",
+    "I": "╎",
+    "J": "⋮",
+    "K": "ꖌ",
+    "L": "ꖎ",
+    "M": "ᒲ",
+    "N": "リ",
+    "O": "𝙹",
+    "P": "!¡",
+    "Q": "ᑑ",
+    "R": "∷",
+    "S": "ᓭ",
+    "T": "ℸ",
+    "U": "⚍",
+    "V": "⍊",
+    "W": "∴",
+    "X": "̇/",
+    "Y": "||",
+    "Z": "⨅",
+}
+
+
+def enchantEncode(word): 
+    word_list = list(word)
+    enchantedText = ""
+    for letter in word_list: 
+        enchantedText += CHAR_MAP.get(letter)
+    
+    return ''.join(enchantedText)
+
+
+
+
+wordList = sys.argv
+total_word = ""
+
+for word in wordList[1:]:
+    word = word.upper()
+    new_text = enchantEncode(word)
+    total_word += new_text + " "
+
+print(total_word)
